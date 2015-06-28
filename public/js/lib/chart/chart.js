@@ -7,7 +7,7 @@ function chart(project_id, api_key) {
   });
 }
 
-function chart_purchase (pageTitle) {
+function chart_purchase () {
 
   connect.push('purchases', [
     {
@@ -31,23 +31,25 @@ function chart_purchase (pageTitle) {
       price: 45.55
     }
   ]);
-
-  connect.push({
-    'app': [
-      {
-        name: pageTitle,
-        location: 'Phoenix'
-      }
-    ],
-    'metadata': [
-      {
-        type: 'Jenny',
-        total: 8675309
-      }
-    ]
-  });
 }
 
+function chart_page(pageTitle) {
+
+    connect.push({
+      'app': [
+        {
+          name: pageTitle,
+          location: 'Phoenix'
+        }
+      ],
+      'metadata': [
+        {
+          type: 'Jenny',
+          total: 8675309
+        }
+      ]
+    });
+}
 var dollarsFormatter = function (value) {
     return numeral(value).format('$0.00');
 };

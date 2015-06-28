@@ -2,7 +2,7 @@
 
 {{#ifCond pageTitle "==" "Home"}}
 <div id="sales-text" class="example-viz"></div>
-<script> chart_purchase("{{pageTitle}}"); chart_text(); </script>
+<script> chart_page("{{pageTitle}}"); chart_text(); </script>
 <div id="sales-bar" class="example-viz"></div>
 <script> chart_bar(); </script>
 <div id="sales-table" class="example-viz"></div>
@@ -13,22 +13,22 @@
 
 {{#ifCond pageTitle "==" "Bar"}}
 <div id="sales-bar" class="example-viz"></div>
-<script> chart_purchase("{{pageTitle}}"); chart_bar(); </script>
+<script> chart_page("{{pageTitle}}"); chart_bar(); </script>
 {{/ifCond}}
 
 {{#ifCond pageTitle "==" "Table"}}
 <div id="sales-table" class="example-viz"></div>
-<script> chart_purchase("{{pageTitle}}"); chart_table(); </script>
+<script> chart_page("{{pageTitle}}"); chart_table(); </script>
 <div id="sales-table2" class="example-viz"></div>
 <script> chart_table2(); </script>
 {{/ifCond}}
 
 {{#ifCond pageTitle "==" "Area"}}
 <div id="sales-area" class="example-viz"></div>
-<script> chart_purchase("{{pageTitle}}"); chart_area(); </script>
+<script> chart_page("{{pageTitle}}"); chart_area(); </script>
 {{/ifCond}}
 
 {{#ifCond pageTitle "==" "Purchase"}}
 <div id="sales-text" class="example-viz"></div>
-<script> chart_purchase("{{pageTitle}}"); chart_text(); </script>
+<script> chart_page("{{pageTitle}}"); chart_purchase(); chart_text(); </script>
 {{/ifCond}}
