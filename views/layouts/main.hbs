@@ -4,24 +4,31 @@
     <meta charset="utf-8" />
     <title>{{pageTitle}} - Example app</title>
     {{#if debug}}
-	    <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+      <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+      <link rel="stylesheet" type="text/css" href="public/css/chart.css" />
     {{else}}
-	    <link rel="stylesheet" type="text/css" href="public/css/style.min.css" />
+      <link rel="stylesheet" type="text/css" href="public/css/style.min.css" />
+      <link rel="stylesheet" type="text/css" href="public/css/chart.min.css" />
     {{/if}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.css" />
 </head>
 <body>
 
 {{> topnav }}
-{{{body}}}
 
+<script type="text/javascript" src="https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 
 {{#if debug}}
-	<script type="text/javascript" src="public/js/lib/handlebars.runtime-v1.3.0.js"></script>
-	<script type="text/javascript" src="public/js/templates.js"></script>
-	<script type="text/javascript" src="public/js/helpers.js"></script>
+  <script type="text/javascript" src="public/js/lib/handlebars.runtime-v1.3.0.js"></script>
+  <script type="text/javascript" src="public/js/templates.js"></script>
+  <script type="text/javascript" src="public/js/helpers.js"></script>
+  <script type="text/javascript" src="public/js/chart.js"></script>
 {{else}}
-	<script type="text/javascript" src="public/js/build/express-boilerplate.min.js"></script>
+  <script type="text/javascript" src="public/js/build/hello-node.min.js"></script>
 {{/if}}
+
+{{{body}}}
 
 </body>
 </html>

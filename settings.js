@@ -1,5 +1,6 @@
-var express = require("express");
-  exphbs  = require('express3-handlebars');
+var express = require("express"),
+    exphbs  = require('express3-handlebars');
+
   // mongoStore used for storing session in mongodb
   // mongoStore = require("connect-mongo")(require("connect"));
 
@@ -35,22 +36,22 @@ module.exports = function(app, config){
   /*
   * dev configuration
   */
-  // if(env === "development"){
-  //     app.use(require("morgan")("dev"));
-  //     app.use(require("errorhandler")());
-  //     // templates use minified and concatenated css and js by default
-  //     // debug boolean used in templates to include unconcatenated and unminified css and js
-  // 	app.locals.debug = true;
+  if (env === "development") {
+    app.use(require("morgan")("dev"));
+    app.use(require("errorhandler")());
+    // templates use minified and concatenated css and js by default
+    // debug boolean used in templates to include unconcatenated and unminified css and js
+    app.locals.debug = true;
 
-  // }
-  // /*
-  // * production configuration
-  // */
-  // else {
-  // 	app.use(require("compression")({
-  // 		threshold: 512 // only compress things that are at least 512 bytes in size
-  // 	}));
-  // }
+  }
+  /*
+   * production configuration
+   */
+  else {
+     app.use(require("compression")({
+        threshold: 512 // only compress things that are at least 512 bytes in size
+    }));
+  }
 
   /* Session management */
   // TODO, update this using new module

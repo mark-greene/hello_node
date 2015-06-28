@@ -7,12 +7,16 @@ module.exports = function(app){
         url: "/",
         name: "Home"
       },{
-        url: "/foo",
-        name: "Foo"
-      },
-      {
         url: "/bar",
         name: "Bar"
+      },
+      {
+        url: "/table",
+        name: "Table"
+      },
+      {
+        url: "/area",
+        name: "Area"
       },
       {
         url: "/purchase",

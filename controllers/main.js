@@ -3,12 +3,16 @@ module.exports = function(app){
     res.render("home", {pageTitle: "Home"});
   });
 
-  app.get("/foo", function(req, res, next){
-    res.render("home", {pageTitle: "Foo"});
-  });
-
   app.get("/bar", function(req, res, next){
     res.render("home", {pageTitle: "Bar"});
+  });
+
+  app.get("/table", function(req, res, next){
+    res.render("home", {pageTitle: "Table"});
+  });
+
+  app.get("/area", function(req, res, next){
+    res.render("home", {pageTitle: "Area"});
   });
 
   app.get("/purchase", function(req, res, next){

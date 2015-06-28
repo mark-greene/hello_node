@@ -3,15 +3,18 @@ this["Handlebars"]["templates"] = this["Handlebars"]["templates"] || {};
 
 this["Handlebars"]["templates"]["home"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 
   buffer += "<h1>";
   if (helper = helpers.pageTitle) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.pageTitle); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</h1>";
+    + "</h1>\n\n";
+  stack1 = self.invokePartial(partials.chart, 'chart', depth0, helpers, partials, data);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
   return buffer;
   });
 
@@ -23,25 +26,25 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
 function program1(depth0,data) {
   
   
-  return "\n	    <link rel=\"stylesheet\" type=\"text/css\" href=\"public/css/style.css\" />\n    ";
+  return "\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"public/css/style.css\" />\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"public/css/chart.css\" />\n    ";
   }
 
 function program3(depth0,data) {
   
   
-  return "\n	    <link rel=\"stylesheet\" type=\"text/css\" href=\"public/css/style.min.css\" />\n    ";
+  return "\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"public/css/style.min.css\" />\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"public/css/chart.min.css\" />\n    ";
   }
 
 function program5(depth0,data) {
   
   
-  return "\n	<script type=\"text/javascript\" src=\"public/js/lib/handlebars.runtime-v1.3.0.js\"></script>\n	<script type=\"text/javascript\" src=\"public/js/templates.js\"></script>\n	<script type=\"text/javascript\" src=\"public/js/helpers.js\"></script>\n";
+  return "\n  <script type=\"text/javascript\" src=\"public/js/lib/handlebars.runtime-v1.3.0.js\"></script>\n  <script type=\"text/javascript\" src=\"public/js/templates.js\"></script>\n  <script type=\"text/javascript\" src=\"public/js/helpers.js\"></script>\n  <script type=\"text/javascript\" src=\"public/js/chart.js\"></script>\n";
   }
 
 function program7(depth0,data) {
   
   
-  return "\n	<script type=\"text/javascript\" src=\"public/js/build/express-boilerplate.min.js\"></script>\n";
+  return "\n  <script type=\"text/javascript\" src=\"public/js/build/hello-node.min.js\"></script>\n";
   }
 
   buffer += "<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\" />\n    <title>";
@@ -51,36 +54,71 @@ function program7(depth0,data) {
     + " - Example app</title>\n    ";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.debug), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</head>\n<body>\n\n";
+  buffer += "\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.css\" />\n</head>\n<body>\n\n";
   stack1 = self.invokePartial(partials.topnav, 'topnav', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n";
+  buffer += "\n\n<script type=\"text/javascript\" src=\"https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.js\"></script>\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js\"></script>\n\n";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.debug), {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n";
   if (helper = helpers.body) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.body); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n\n";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.debug), {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n</body>\n</html>";
+  buffer += "\n\n</body>\n</html>\n";
   return buffer;
   });
 
-this["Handlebars"]["templates"]["test1"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["Handlebars"]["templates"]["chart"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
   
-
-
-  return "here is test partial 1";
-  });
-
-this["Handlebars"]["templates"]["test2"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
+  return "\n<div id=\"sales-text\" class=\"example-viz\"></div>\n<script> chart_text(); </script>\n<div id=\"sales-bar\" class=\"example-viz\"></div>\n<script> chart_bar(); </script>\n<div id=\"sales-table\" class=\"example-viz\"></div>\n<script> chart_table(); </script>\n<div id=\"sales-area\" class=\"example-viz\"></div>\n<script> chart_area(); </script>\n";
+  }
 
+function program3(depth0,data) {
+  
+  
+  return "\n<div id=\"sales-bar\" class=\"example-viz\"></div>\n<script> chart_bar(); </script>\n";
+  }
 
-  return "here is test partial 2";
+function program5(depth0,data) {
+  
+  
+  return "\n<div id=\"sales-table\" class=\"example-viz\"></div>\n<script> chart_table(); </script>\n<div id=\"sales-table2\" class=\"example-viz\"></div>\n<script> chart_table2(); </script>\n";
+  }
+
+function program7(depth0,data) {
+  
+  
+  return "\n<div id=\"sales-area\" class=\"example-viz\"></div>\n<script> chart_area(); </script>\n";
+  }
+
+function program9(depth0,data) {
+  
+  
+  return "\n<div id=\"sales-text\" class=\"example-viz\"></div>\n<script> chart_purchase(pageTitle); text(); </script>\n";
+  }
+
+  stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.pageTitle), "==", "Home", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.pageTitle), "==", "Home", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n";
+  stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.pageTitle), "==", "Bar", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.pageTitle), "==", "Bar", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n";
+  stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.pageTitle), "==", "Table", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.pageTitle), "==", "Table", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n";
+  stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.pageTitle), "==", "Area", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.pageTitle), "==", "Area", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n";
+  stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.pageTitle), "==", "Purchase", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.pageTitle), "==", "Purchase", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  return buffer;
   });
 
 this["Handlebars"]["templates"]["topnav"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

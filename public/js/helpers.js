@@ -4,7 +4,7 @@
 
         /************* BEGIN HELPERS *************/
         var helpers = {
-            ifCond: function(from, operator, to, options) {
+            ifCond: function(v1, operator, v2, options) {
                 if (operator) {
                     switch (operator) {
                         case '==':
@@ -40,7 +40,7 @@
                     }
                     return template(data, options);
                 }
-            },            
+            },
             eachLimit: function(ary, max, options) {
                 if (!ary || ary.length === 0) return options.inverse(this);
 
@@ -60,7 +60,7 @@
                 Handlebars.registerHelper(prop, helpers[prop]);
             }
         } else {
-            // just return helpers object, used to enumerate "knownHelpers" in Grunt            
+            // just return helpers object, used to enumerate "knownHelpers" in Grunt
             return helpers;
         }
     };
