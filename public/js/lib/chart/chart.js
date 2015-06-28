@@ -50,6 +50,7 @@ function chart_page(pageTitle) {
       ]
     });
 }
+
 var dollarsFormatter = function (value) {
     return numeral(value).format('$0.00');
 };
@@ -140,6 +141,47 @@ function chart_table2() {
               label: 'Hits'
           }
       }
+  });
+}
+
+function chart_sales(number) {
+
+  for (var i = 1; i <= number; i++ ) {
+    connect.push({
+      "sales": [
+        {
+          customer: {
+            firstName: 'Tom',
+            lastName: 'Smith'
+          },
+          batch: i,
+          product: '12 red roses',
+          price: 34.95,
+          time: moment()
+        }
+      ]
+    });
+  }
+}
+
+function chart_table3() {
+  var query = connect.query('sales')
+      .select({
+      units: 'count',
+      sales: { sum: 'price' }
+  }).groupBy(['batch', 'product']);
+
+  connect.table(query, '#sales-table3', {
+    title: 'Sales',
+    fields: {
+      'batch': { label: 'Batch' },
+      'product': { label: 'Product' },
+      'units': { label: 'Units' },
+      'sales': {
+          label: 'Sales ($)',
+          valueFormatter: dollarsFormatter
+      }
+    }
   });
 }
 

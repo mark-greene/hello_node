@@ -19,6 +19,8 @@
 {{#ifCond pageTitle "==" "Table"}}
 <div id="sales-table" class="example-viz"></div>
 <script> chart_page("{{pageTitle}}"); chart_table(); </script>
+<div id="sales-table3" class="example-viz"></div>
+<script> chart_table3(); </script>
 <div id="sales-table2" class="example-viz"></div>
 <script> chart_table2(); </script>
 {{/ifCond}}
@@ -30,5 +32,5 @@
 
 {{#ifCond pageTitle "==" "Purchase"}}
 <div id="sales-text" class="example-viz"></div>
-<script> chart_page("{{pageTitle}}"); chart_purchase(); chart_text(); </script>
+<script> chart_page("{{pageTitle}}"); chart_purchase(); chart_sales(100); chart_text(); </script>
 {{/ifCond}}
