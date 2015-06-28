@@ -102,7 +102,7 @@ function program5(depth0,data) {
   if (helper = helpers.pageTitle) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.pageTitle); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\"); chart_table(); </script>\n<div id=\"sales-table2\" class=\"example-viz\"></div>\n<script> chart_table2(); </script>\n<div id=\"sales-table3\" class=\"example-viz\"></div>\n<script> chart_table3(); </script>\n";
+    + "\"); chart_table(); </script>\n<div id=\"sales-table3\" class=\"example-viz\"></div>\n<script> chart_table3(); </script>\n<div id=\"sales-table2\" class=\"example-viz\"></div>\n<script> chart_table2(); </script>\n";
   return buffer;
   }
 
