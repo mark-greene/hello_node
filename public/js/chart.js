@@ -1,7 +1,11 @@
-var connect = new Connect({
-    projectId: '558a0f311f2ddd0bf4ebcd97',
-    apiKey: '6841F495474A544129FB2863052A6D79-4E3B903581BC90BCC9190E56441063E35DE54B1316E2C825DBC2D644359D265051F2D8B245DA2FC8B03F72F64582BB49'
-});
+var connect;
+
+function chart(project_id, api_key) {
+  connect = new Connect({
+      projectId: project_id,
+      apiKey: api_key
+  });
+}
 
 function chart_purchase (pageTitle) {
 

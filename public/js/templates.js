@@ -71,38 +71,72 @@ function program7(depth0,data) {
 this["Handlebars"]["templates"]["chart"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
+  var buffer = "", stack1, helper, options, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
 
 function program1(depth0,data) {
   
-  
-  return "\n<div id=\"sales-text\" class=\"example-viz\"></div>\n<script> chart_text(); </script>\n<div id=\"sales-bar\" class=\"example-viz\"></div>\n<script> chart_bar(); </script>\n<div id=\"sales-table\" class=\"example-viz\"></div>\n<script> chart_table(); </script>\n<div id=\"sales-area\" class=\"example-viz\"></div>\n<script> chart_area(); </script>\n";
+  var buffer = "", stack1, helper;
+  buffer += "\n<div id=\"sales-text\" class=\"example-viz\"></div>\n<script> chart_purchase(\"";
+  if (helper = helpers.pageTitle) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.pageTitle); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"); chart_text(); </script>\n<div id=\"sales-bar\" class=\"example-viz\"></div>\n<script> chart_bar(); </script>\n<div id=\"sales-table\" class=\"example-viz\"></div>\n<script> chart_table(); </script>\n<div id=\"sales-area\" class=\"example-viz\"></div>\n<script> chart_area(); </script>\n";
+  return buffer;
   }
 
 function program3(depth0,data) {
   
-  
-  return "\n<div id=\"sales-bar\" class=\"example-viz\"></div>\n<script> chart_bar(); </script>\n";
+  var buffer = "", stack1, helper;
+  buffer += "\n<div id=\"sales-bar\" class=\"example-viz\"></div>\n<script> chart_purchase(\"";
+  if (helper = helpers.pageTitle) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.pageTitle); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"); chart_bar(); </script>\n";
+  return buffer;
   }
 
 function program5(depth0,data) {
   
-  
-  return "\n<div id=\"sales-table\" class=\"example-viz\"></div>\n<script> chart_table(); </script>\n<div id=\"sales-table2\" class=\"example-viz\"></div>\n<script> chart_table2(); </script>\n";
+  var buffer = "", stack1, helper;
+  buffer += "\n<div id=\"sales-table\" class=\"example-viz\"></div>\n<script> chart_purchase(\"";
+  if (helper = helpers.pageTitle) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.pageTitle); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"); chart_table(); </script>\n<div id=\"sales-table2\" class=\"example-viz\"></div>\n<script> chart_table2(); </script>\n";
+  return buffer;
   }
 
 function program7(depth0,data) {
   
-  
-  return "\n<div id=\"sales-area\" class=\"example-viz\"></div>\n<script> chart_area(); </script>\n";
+  var buffer = "", stack1, helper;
+  buffer += "\n<div id=\"sales-area\" class=\"example-viz\"></div>\n<script> chart_purchase(\"";
+  if (helper = helpers.pageTitle) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.pageTitle); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"); chart_area(); </script>\n";
+  return buffer;
   }
 
 function program9(depth0,data) {
   
-  
-  return "\n<div id=\"sales-text\" class=\"example-viz\"></div>\n<script> chart_purchase(pageTitle); text(); </script>\n";
+  var buffer = "", stack1, helper;
+  buffer += "\n<div id=\"sales-text\" class=\"example-viz\"></div>\n<script> chart_purchase(\"";
+  if (helper = helpers.pageTitle) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.pageTitle); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"); chart_text(); </script>\n";
+  return buffer;
   }
 
+  buffer += "<script> chart(";
+  if (helper = helpers.project_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.project_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + ", ";
+  if (helper = helpers.api_key) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.api_key); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "); </script>\n\n";
   stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.pageTitle), "==", "Home", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.pageTitle), "==", "Home", options));
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n\n";

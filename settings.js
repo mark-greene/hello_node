@@ -8,6 +8,9 @@ module.exports = function(app, config){
 
   var env = process.env.NODE_ENV || "development";
 
+  app.locals.project_id = process.env.PROJECT_ID;
+  app.locals.api_key = process.env.API_KEY;
+
   /*
   * Serve up files in the /public directory statically
   */
