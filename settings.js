@@ -1,5 +1,6 @@
 var express = require("express"),
-    exphbs  = require('express3-handlebars');
+    exphbs  = require('express-handlebars'),
+    helpers = require('./public/js/helpers');
 
   // mongoStore used for storing session in mongodb
   // mongoStore = require("connect-mongo")(require("connect"));
@@ -22,19 +23,14 @@ module.exports = function(app, config){
   var hbs = exphbs.create({
       defaultLayout: "main",
       extname: ".hbs",
+      helpers: helpers,
       partialsDir: 'views/partials/', // same as default, I just like to be explicit
-      layoutsDir: "views/layouts/" // same as default, I just like to be explicit
-  });
-
-  // register helpers after partials have loaded, and pass Handlebars instance into register function
-  hbs.loadPartials(function(err, partials){
-    // attach partials to Handlebars instance, exposing them to helpers
-    hbs.handlebars.partials = partials;
-    require("./public/js/helpers").register(hbs.handlebars);
+      layoutsDir: "views/layouts/"    // same as default, I just like to be explicit
   });
 
   app.engine('hbs', hbs.engine);
   app.set('view engine', 'hbs');
+
 
   /*
   * dev configuration
