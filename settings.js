@@ -23,7 +23,7 @@ module.exports = function(app, config){
   var hbs = exphbs.create({
       defaultLayout: "main",
       extname: ".hbs",
-      helpers: helpers,
+      helpers: helpers.helpers,
       partialsDir: 'views/partials/', // same as default, I just like to be explicit
       layoutsDir: "views/layouts/"    // same as default, I just like to be explicit
   });

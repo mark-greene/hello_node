@@ -32,5 +32,6 @@
 
 {{#ifCond pageTitle "==" "Purchase"}}
 <div id="sales-text" class="example-viz"></div>
+<input id="purchase" type="button" value="Purchase" onclick="window.location.reload()" />
 <script> chart_page("{{pageTitle}}"); chart_purchase(); chart_sales(100); chart_text(); </script>
 {{/ifCond}}

@@ -14,8 +14,6 @@
 </head>
 <body>
 
-{{> topnav }}
-
 <script type="text/javascript" src="https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
@@ -28,6 +26,8 @@
 {{else}}
   <script type="text/javascript" src="public/js/build/hello-node.min.js"></script>
 {{/if}}
+
+{{> topnav }}
 
 {{{body}}}
 

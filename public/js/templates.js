@@ -54,11 +54,11 @@ function program7(depth0,data) {
     + " - Example app</title>\n    ";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.debug), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.css\" />\n</head>\n<body>\n\n";
-  stack1 = self.invokePartial(partials.topnav, 'topnav', depth0, helpers, partials, data);
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n<script type=\"text/javascript\" src=\"https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.js\"></script>\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js\"></script>\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js\"></script>\n\n";
+  buffer += "\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.css\" />\n</head>\n<body>\n\n<script type=\"text/javascript\" src=\"https://cdn.getconnect.io/connect-js/0.2.1/standalone/connect-all.min.js\"></script>\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js\"></script>\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js\"></script>\n\n";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.debug), {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n";
+  stack1 = self.invokePartial(partials.topnav, 'topnav', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n\n";
   if (helper = helpers.body) { stack1 = helper.call(depth0, {hash:{},data:data}); }
@@ -120,7 +120,7 @@ function program7(depth0,data) {
 function program9(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n<div id=\"sales-text\" class=\"example-viz\"></div>\n<script> chart_page(\"";
+  buffer += "\n<div id=\"sales-text\" class=\"example-viz\"></div>\n<input id=\"purchase\" type=\"button\" value=\"Purchase\" onclick=\"window.location.reload()\" />\n<script> chart_page(\"";
   if (helper = helpers.pageTitle) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.pageTitle); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
